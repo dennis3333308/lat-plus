@@ -3,68 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>暢悠樂 Plus 百億益生菌 | 官方深度導航平台</title>
+    <title>暢悠樂 Plus 百億益生菌 | 官方深度導覽平台</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
             --brand-pink: #f8c6d1; 
             --dark-pink: #d67b8e; 
-            --complementary-teal: #008b8b; /* 互補色按鈕 */
+            --complementary-teal: #008b8b; 
             --teal-hover: #006666;
             --bg-light: #fff9fa; 
             --text-main: #444; 
         }
         * { box-sizing: border-box; }
-        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; scroll-behavior: smooth; line-height: 1.8; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; line-height: 1.8; }
         
         /* 導覽列 */
-        nav { background: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .btn-nav { text-decoration: none; background: var(--complementary-teal); color: #fff !important; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; }
+        nav { 
+            background: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: center; 
+            align-items: center; flex-wrap: wrap; gap: 10px; 
+        }
+        .btn-nav { 
+            text-decoration: none; background: var(--complementary-teal); color: #fff !important; 
+            padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; 
+        }
         .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); }
 
-        /* 首屏 Hero */
-        .hero { background: linear-gradient(135deg, #fff 0%, var(--brand-pink) 100%); padding: 100px 20px; text-align: center; }
-        .hero h1 { color: var(--dark-pink); font-size: 3rem; margin: 10px 0; letter-spacing: 2px; }
-        .badge { background: var(--dark-pink); color: #fff; padding: 5px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; }
+        /* Hero 區 */
+        .hero { 
+            background: linear-gradient(135deg, #fff 0%, var(--brand-pink) 100%); 
+            padding: 60px 5%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+            min-height: 80vh;
+        }
+        .hero-content { flex: 1.2; min-width: 320px; padding: 20px; }
+        .hero-image { flex: 0.8; min-width: 320px; text-align: center; padding: 20px; }
+        .hero-image img { max-width: 100%; height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); }
+        .hero h1 { color: var(--dark-pink); font-size: clamp(2rem, 5vw, 3.2rem); margin: 10px 0; letter-spacing: 2px; line-height: 1.2; }
+        .badge { background: var(--dark-pink); color: #fff; padding: 5px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; }
 
-        /* 核心數據卡片 */
-        .spec-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
-        .spec-card { background: #fff; padding: 25px; border-radius: 20px; width: 180px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid var(--brand-pink); }
-        .spec-card strong { display: block; font-size: 2rem; color: var(--dark-pink); }
+        .spec-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .spec-card { background: #fff; padding: 20px; border-radius: 15px; flex: 1; min-width: 120px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid var(--brand-pink); text-align: center; }
+        .spec-card strong { display: block; font-size: 1.8rem; color: var(--dark-pink); }
 
-        /* 區塊樣式 */
-        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; color: var(--dark-pink); margin-bottom: 50px; font-size: 2rem; }
+        /* 區塊標題 */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; color: var(--dark-pink); margin-bottom: 50px; font-size: clamp(1.5rem, 4vw, 2.2rem); }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--complementary-teal); margin: 15px auto; border-radius: 2px; }
 
-        /* 9大菌種表格 - 完全補齊 */
-        .table-wrapper { overflow-x: auto; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        table { width: 100%; border-collapse: collapse; background: #fff; }
-        th, td { border: 1px solid #f0f0f0; padding: 18px; text-align: left; vertical-align: middle; }
+        /* 9大菌種表格 */
+        .table-wrapper { overflow-x: auto; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); background: #fff; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th, td { border: 1px solid #f0f0f0; padding: 18px; text-align: left; }
         th { background: var(--brand-pink); color: #555; }
-        .strain-tag { background: var(--bg-light); color: var(--dark-pink); padding: 4px 10px; border-radius: 4px; font-weight: bold; border: 1px solid var(--brand-pink); display: inline-block; margin-bottom: 5px; }
+        .strain-tag { background: var(--bg-light); color: var(--dark-pink); padding: 4px 10px; border-radius: 4px; font-weight: bold; border: 1px solid var(--brand-pink); white-space: nowrap; }
 
-        /* 內容網格 */
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        /* 網格系統 */
+        .grid-responsive { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .info-box { background: white; padding: 30px; border-radius: 20px; border-bottom: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%; }
-        .info-box h3 { color: var(--complementary-teal); margin-top: 0; }
-        .info-box ul { padding-left: 20px; margin: 0; font-size: 0.9rem; color: #666; }
+        .info-box h3 { color: var(--complementary-teal); margin-top: 0; font-size: 1.2rem; }
+        .info-box ul { padding-left: 20px; color: #666; font-size: 0.95rem; }
 
-        /* Q&A */
-        .qa-container { background: var(--bg-light); padding: 40px; border-radius: 30px; }
-        .qa-item { margin-bottom: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
-        summary { padding: 20px; font-weight: bold; cursor: pointer; color: var(--dark-pink); list-style: none; position: relative; }
-        summary::after { content: '▼'; position: absolute; right: 20px; font-size: 0.8rem; }
-        .qa-content { padding: 0 20px 20px 20px; color: #777; border-top: 1px solid #f9f9f9; font-size: 0.95rem; }
+        /* 美化版 Q&A */
+        .qa-container { background: var(--bg-light); padding: clamp(20px, 5vw, 40px); border-radius: 30px; }
+        .qa-item { margin-bottom: 15px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: 0.3s; border-left: 0px solid var(--complementary-teal); }
+        .qa-item:hover { transform: translateX(5px); border-left: 6px solid var(--complementary-teal); }
+        
+        summary { 
+            padding: 22px 25px; font-weight: bold; cursor: pointer; color: var(--text-main); 
+            list-style: none; position: relative; display: flex; align-items: center; 
+        }
+
+        /* 自定義美化問號圖示 */
+        summary::before {
+            content: '?';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--complementary-teal);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0,139,139,0.3);
+        }
+
+        summary::after { 
+            content: '▼'; position: absolute; right: 25px; font-size: 0.7rem; color: #ccc; transition: 0.3s; 
+        }
+        details[open] summary::after { transform: rotate(180deg); color: var(--complementary-teal); }
+        
+        .qa-content { 
+            padding: 0 25px 25px 68px; /* 68px 是為了對齊文字，避開左側問號圖示 */
+            color: #777; border-top: 1px solid #f9f9f9; font-size: 0.95rem; line-height: 1.8;
+        }
 
         /* 聯絡區 */
         .contact-box { background: #333; color: #fff; text-align: center; padding: 60px 20px; border-radius: 30px; margin-top: 50px; }
-        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; }
+        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: clamp(1rem, 3vw, 1.3rem); font-weight: bold; word-break: break-all; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .hero { text-align: center; padding-top: 40px; }
+            .hero-content { order: 2; }
+            .hero-image { order: 1; margin-bottom: 30px; }
+            .qa-content { padding-left: 25px; } /* 手機版縮排減少 */
         }
     </style>
 </head>
@@ -79,26 +124,31 @@
     </nav>
 
     <section class="hero">
-        <span class="badge">LAT 暢悠樂生技 官方認證</span>
-        <h1>暢悠樂 Plus 百億益生菌</h1>
-        <p>「1 盒 90 包，陪伴您完成 90 天體質重建計畫」<br>科學定量 2.0g，為亞洲家庭量身打造的高品質機能方案。</p>
-        
-        <div class="spec-container">
-            <div class="spec-card"><strong>90</strong>入 / 盒</div>
-            <div class="spec-card"><strong>2.0g</strong>單包足量</div>
-            <div class="spec-card"><strong>100億</strong>活菌保證</div>
-        </div>
+        <div class="hero-content">
+            <span class="badge">LAT 暢悠樂生技 官方認證</span>
+            <h1>暢悠樂 Plus<br>百億益生菌</h1>
+            <p>專業研發 90 包入大容量，針對台灣體質設計的深度管理方案。每一口都是 100 億活菌的精準守護。</p>
+            
+            <div class="spec-container">
+                <div class="spec-card"><strong>90</strong>入 / 盒</div>
+                <div class="spec-card"><strong>2.0g</strong>單包足量</div>
+                <div class="spec-card"><strong>100億</strong>活菌</div>
+            </div>
 
-        <a href="https://shopee.tw" target="_blank" class="btn-nav" style="margin-top: 50px; padding: 20px 60px; font-size: 1.1rem;">前往蝦皮官方授權賣場 ➔</a>
+            <a href="https://shopee.tw" target="_blank" class="btn-nav" style="margin-top: 40px; padding: 18px 45px; font-size: 1.1rem; display: inline-block;">前往蝦皮官方賣場 ➔</a>
+        </div>
+        <div class="hero-image">
+            <img src="product.png" alt="暢悠樂 Plus 產品包裝圖">
+        </div>
     </section>
 
     <section id="strains">
-        <h2 class="section-title">🧬 9 種機能菌株臨床特性對齊</h2>
+        <h2 class="section-title">🧬 9 種機能菌株專業解析</h2>
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
-                        <th width="40%">菌種組成 (全名與編號)</th>
+                        <th width="35%">菌種組成 (編號)</th>
                         <th>頂尖營養師解析：生理功能</th>
                     </tr>
                 </thead>
@@ -108,9 +158,9 @@
                     <tr><td><span class="strain-tag">LPC12</span> 副乾酪乳桿菌</td><td>針對環境敏感族群研發，調節換季反應。</td></tr>
                     <tr><td><span class="strain-tag">LRH10</span> 鼠李糖乳桿菌</td><td>極致耐受性，能長時間在體內發揮防護。</td></tr>
                     <tr><td><span class="strain-tag">LF26</span> 發酵乳桿菌</td><td>優化微生態平衡，提升內在防禦力。</td></tr>
-                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌</td><td>產乳酸能力強，協助其他菌株增殖定殖。</td></tr>
-                    <tr><td><span class="strain-tag">LH43</span> 瑞士乳桿菌</td><td>輔助消化與養分吸收，維持活力充沛。</td></tr>
-                    <tr><td><span class="strain-tag">KM116</span> 脆壁克魯維酵母菌</td><td>獨特益生真菌，優化腸道環境，解決脹氣。</td></tr>
+                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌</td><td>產乳酸能力強，協助其他菌株增殖。</td></tr>
+                    <tr><td><span class="strain-tag">LH43</span> 瑞士乳桿菌</td><td>輔助消化與養分吸收，維持活力。</td></tr>
+                    <tr><td><span class="strain-tag">KM116</span> 脆壁克魯維酵母菌</td><td>獨特益生真菌，優化腸道環境。</td></tr>
                     <tr><td><span class="strain-tag">UBCB70</span> 酪酸菌</td><td>專利包埋，產生關鍵丁酸，修復屏障。</td></tr>
                 </tbody>
             </table>
@@ -118,55 +168,54 @@
     </section>
 
     <section id="usage">
-        <h2 class="section-title">🕒 產品使用說明：營養師建議</h2>
-        <div class="grid-2">
+        <h2 class="section-title">🕒 產品使用說明</h2>
+        <div class="grid-responsive">
             <div class="info-box">
                 <h3>食用方式與劑量</h3>
                 <ul>
                     <li><strong>成人：</strong> 每日 2-3 次，每次 1 包。</li>
                     <li><strong>5歲以上兒童：</strong> 每日 1 次，每次 1 包。</li>
-                    <li><strong>食用時機：</strong> 飯前或飯後均可直接食用，或加入冷開水、溫奶(40°C以下)中。</li>
-                    <li><strong>強烈建議：</strong> 請勿搭配超過 40°C 之熱飲，以確保活菌活性。</li>
+                    <li><strong>最佳時機：</strong> 建議睡前空腹或飯前食用。</li>
+                    <li><strong>警語：</strong> 搭配水溫請勿超過 40°C。</li>
                 </ul>
             </div>
             <div class="info-box">
                 <h3>保存與注意事項</h3>
                 <ul>
-                    <li><strong>保存方法：</strong> 請置於陰涼乾燥處，避免陽光直射與高溫環境。</li>
-                    <li><strong>過敏原提示：</strong> 本產品含有牛奶、大豆及其製品，不適合對其過敏者食用。</li>
-                    <li><strong>健康警語：</strong> 請依照建議量食用，多食無益。特殊體質者建議諮詢醫師後食用。</li>
+                    <li><strong>保存：</strong> 陰涼乾燥處，避免陽光直射。</li>
+                    <li><strong>過敏原：</strong> 本產品含有牛奶、大豆及其製品。</li>
+                    <li><strong>提示：</strong> 懷孕、特殊體質請諮詢醫師。</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="knowledge">
-        <h2 class="section-title">💡 益生菌教室：解鎖 2700 元的價值</h2>
-        <div class="grid-3">
-            <div class="info-box"><h3>為什麼需要「90天」？</h3><p>腸道細胞更新週期約為三個月。我們堅持 90 包的大容量設計，是為了確保用戶能完成完整的體質重建計畫。</p></div>
-            <div class="info-box"><h3>專利包埋技術</h3><p>益生菌怕酸怕熱。我們的專利包埋技術如同盔甲，保護 100 億活菌通過胃酸，活性直達目的地。</p></div>
-            <div class="info-box"><h3>2.0g 足量填充</h3><p>足量 2.0g 給予活菌充足的養分（益生元）。拒絕填充無用的糖粉，每一口都是精準的健康管理。</p></div>
-        </div>
-    </section>
-
     <section id="qa">
-        <h2 class="section-title">❓ 頂尖營養師為您解答：常見疑慮</h2>
+        <h2 class="section-title">常見問題解答</h2>
         <div class="qa-container">
             <div class="qa-item">
-                <details><summary>素食者可以食用嗎？</summary>
-                <div class="qa-content">本產品內含乳酸菌且添加脫脂奶粉，屬於「奶素」可食。純素食者請斟酌考慮。</div></details>
+                <details>
+                    <summary>糖尿病患者可以食用嗎？</summary>
+                    <div class="qa-content">單包熱量僅 7.7 大卡，含糖量極低 (0.7g)。對於血糖波動影響微乎其微。建議作為日常營養補充，於餐間食用效果最佳。</div>
+                </details>
             </div>
             <div class="qa-item">
-                <details><summary>糖尿病患者、三高患者可以吃嗎？</summary>
-                <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低（0.7g）。對於需要控糖的糖尿病患者而言，對血糖波動影響微乎其微。建議諮詢您的主治醫師，並在餐間食用效果更佳。</div></details>
+                <details>
+                    <summary>素食者可以食用嗎？</summary>
+                    <div class="qa-content">本產品成分內含乳酸菌及脫脂奶粉，屬於「奶素」可食。純素食者（Vegan）請斟酌參考成分表。</div>
+                </details>
             </div>
             <div class="qa-item">
-                <details><summary>為什麼這款產品要賣 NT$ 2,700？</summary>
-                <div class="qa-content">市售平價品通常僅 30 入且菌數極低。我們單盒即有 90 包（三個月管理量），總活菌高達 9000 億。平均單日僅需 30 元銅板價，卻能獲得一站式的體質管理計畫。</div></details>
+                <details>
+                    <summary>為什麼比別家賣得貴？</summary>
+                    <div class="qa-content">我們一盒 90 包是完整的「體質重建」三個月量。換算每日成本僅約 30 元，卻能獲得總菌量高達 9000 億的深度管理，這比購買效果不明的廉價短期包裝更具投資價值。</div>
+                </details>
             </div>
             <div class="qa-item">
-                <details><summary>正在服用抗生素或藥物，可以吃嗎？</summary>
-                <div class="qa-content">可以。但請務必與藥物隔開 2 小時以上，避免藥物殺死益生菌。</div></details>
+                <details>
+                    <summary>正在吃藥或抗生素期間可以吃嗎？</summary>
+                    <div class="qa-content">可以。但建議與藥物（尤其是抗生素）間隔至少 2 小時食用，以避免藥物影響益生菌的活性。</div>
+                </details>
             </div>
         </div>
     </section>
@@ -174,7 +223,7 @@
     <section id="contact">
         <div class="contact-box">
             <h2>聯繫我們</h2>
-            <p>如有大宗採購或合作諮詢，歡迎來信：</p>
+            <p>如有採購合作或產品諮詢，歡迎隨時來信：</p>
             <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a>
             <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 LAT 暢悠樂生技 ｜ 官方技術導覽平台</p>
         </div>
