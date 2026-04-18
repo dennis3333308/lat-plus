@@ -27,9 +27,8 @@
         .btn-nav { 
             text-decoration: none; background: var(--complementary-teal); color: #fff !important; 
             padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
-        .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); box-shadow: 0 5px 12px rgba(0,0,0,0.15); }
+        .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); }
 
         /* Hero 區 */
         .hero { 
@@ -54,17 +53,28 @@
         .section-title { text-align: center; color: var(--dark-pink); margin-bottom: 50px; font-size: clamp(1.8rem, 4vw, 2.2rem); }
         .section-title span { color: var(--complementary-teal); }
 
-        /* 9大菌種表格 */
-        .table-wrapper { overflow-x: auto; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); background: #fff; }
-        table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        /* 🏆 關鍵修正：表格自適應外殼 */
+        .table-wrapper { 
+            width: 100%; 
+            overflow-x: auto; /* 開啟水平滾動，防止手機版撐破畫面 */
+            -webkit-overflow-scrolling: touch; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05); 
+            background: #fff;
+            margin-top: 20px;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 650px; /* 確保在小螢幕上內容不擠壓，而是產生滾動條 */
+        }
         th, td { border: 1px solid #f0f0f0; padding: 18px; text-align: left; }
-        th { background: var(--brand-pink); color: #555; }
-        .strain-tag { background: var(--bg-light); color: var(--dark-pink); padding: 4px 10px; border-radius: 4px; font-weight: bold; border: 1px solid var(--brand-pink); }
+        th { background: var(--brand-pink); color: #555; white-space: nowrap; }
+        .strain-tag { background: var(--bg-light); color: var(--dark-pink); padding: 4px 10px; border-radius: 4px; font-weight: bold; border: 1px solid var(--brand-pink); white-space: nowrap; }
 
         /* 益生菌教室網格 */
         .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .ng-box { background: white; padding: 30px; border-radius: 20px; border-top: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .ng-box:hover { transform: translateY(-5px); }
+        .ng-box { background: white; padding: 30px; border-radius: 20px; border-top: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .ng-box h3 { color: var(--dark-pink); margin-top: 0; font-size: 1.2rem; display: flex; align-items: center; }
         .ng-box h3::before { content: 'NG'; background: #ff4d4d; color: white; padding: 2px 8px; border-radius: 4px; margin-right: 10px; font-size: 0.8rem; }
         .ng-box p { font-size: 0.95rem; color: #666; }
@@ -85,8 +95,7 @@
 
         /* 聯絡區 */
         .contact-box { background: #333; color: #fff; text-align: center; padding: 60px 20px; border-radius: 30px; margin-top: 50px; }
-        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; transition: 0.3s; }
-        .contact-box a:hover { color: #fff; }
+        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; }
 
         @media (max-width: 768px) {
             .hero { text-align: center; }
@@ -110,12 +119,12 @@
         <div class="hero-content">
             <span class="badge">LAT 暢悠樂生技 官方認證</span>
             <h1>暢悠樂 Plus<br>百億益生菌</h1>
-            <p>1 盒 90 包入：針對亞洲人體質研發的「90 天深層管理方案」。<br>科學定量 2.0g，確保每一口都是 100 億活菌的精準守護。</p>
+            <p>90天深度體質管理計畫。科學定量 2.0g，確保每一口都是 100 億活菌的精準守護。給予腸道最紮實的防禦與支撐。</p>
             
             <div class="spec-container">
                 <div class="spec-card"><strong>90</strong>入 / 盒</div>
                 <div class="spec-card"><strong>2.0g</strong>單包足量</div>
-                <div class="spec-card"><strong>100億</strong>活菌保證</div>
+                <div class="spec-card"><strong>100億</strong>活菌</div>
             </div>
 
             <a href="https://shopee.tw" target="_blank" class="btn-nav" style="margin-top: 40px; padding: 18px 45px; font-size: 1.1rem; display: inline-block;">前往蝦皮官方授權賣場 ➔</a>
@@ -136,15 +145,16 @@
                     <tr><td><span class="strain-tag">LA1063</span> 嗜酸乳桿菌</td><td>強效耐酸定殖，建立消化道首道物理防禦屏障。</td></tr>
                     <tr><td><span class="strain-tag">BL986</span> 長雙歧桿菌</td><td>改善生理排便困擾，維持菌叢生態多樣性與穩定。</td></tr>
                     <tr><td><span class="strain-tag">LPC12</span> 副乾酪乳桿菌</td><td>調節環境換季反應，強化身體核心防護力。</td></tr>
-                    <tr><td><span class="strain-tag">LRH10</span> 鼠李糖乳桿菌</td><td>極致環境耐受性，能長期穩定在體內發揮定殖優勢。</td></tr>
+                    <tr><td><span class="strain-tag">LRH10</span> 鼠李糖乳桿菌</td><td>極致環境耐受性，能長期穩定在體內發揮優勢。</td></tr>
                     <tr><td><span class="strain-tag">LF26</span> 發酵乳桿菌</td><td>優化微生態平衡，進一步鞏固內在防禦系統。</td></tr>
-                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌</td><td>產乳酸能力優異，協助其他機能菌株之生存發酵。</td></tr>
+                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌</td><td>產乳酸能力優異，協助其他機能菌株之發酵生存。</td></tr>
                     <tr><td><span class="strain-tag">LH43</span> 瑞士乳桿菌</td><td>輔助消化與養分吸收，維持每日生理機能運作。</td></tr>
                     <tr><td><span class="strain-tag">KM116</span> 脆壁克魯維酵母菌</td><td>獨特益生真菌，調節環境並優化整體吸收效率。</td></tr>
-                    <tr><td><span class="strain-tag">UBCB70</span> 酪酸菌</td><td>專利包埋技術，產生關鍵丁酸，修復穩定黏膜屏障。</td></tr>
+                    <tr><td><span class="strain-tag">UBCB70</span> 酪酸菌</td><td>專利包埋技術，產生關鍵丁酸，修復穩定黏膜。</td></tr>
                 </tbody>
             </table>
         </div>
+        <p style="text-align:center; font-size:0.8rem; color:#999; margin-top:10px;">(電腦版可直接查看，手機版請向左滑動表格內容)</p>
     </section>
 
     <section id="knowledge">
@@ -152,41 +162,41 @@
         <div class="knowledge-grid">
             <div class="ng-box">
                 <h3>極端溫度影響 (熱飲)</h3>
-                <p>益生菌對熱高度敏感。凡超過 <span class="highlight">40°C</span> 的溫熱飲品或熱奶，皆可能破壞菌株活性。建議搭配常溫或微涼飲品。</p>
+                <p>益生菌對熱高度敏感。凡超過 <span class="highlight">40°C</span> 的溫熱飲品，皆可能破壞菌株活性。建議搭配常溫或微涼飲品。</p>
             </div>
             <div class="ng-box">
                 <h3>機能性飲品干擾 (咖啡)</h3>
-                <p>咖啡因與多酚具有生物鹼特性，可能抑制定殖率。若有飲用習慣，請與補充時間 <span class="highlight">間隔 2 小時</span>。</p>
+                <p>咖啡因與多酚可能抑制定殖率。若有飲用習慣，請與補充時間 <span class="highlight">間隔 2 小時</span>。</p>
             </div>
             <div class="ng-box">
                 <h3>藥物化學衝突 (中西藥)</h3>
-                <p>抗生素會同時清除好壞菌。服藥期間請與益生菌補充 <span class="highlight">區隔 2 小時以上</span>，避免功能相互抵銷。</p>
+                <p>抗生素會同時清除好壞菌。服藥期間請與補充時間 <span class="highlight">區隔 2 小時以上</span>，避免功能抵銷。</p>
             </div>
             <div class="ng-box">
                 <h3>高脂高熱量壓力 (炸物)</h3>
-                <p>炸物與燒烤產生的自由基會惡化微生態。補充期間維持 <span class="highlight">清淡飲食</span>，能提供菌株更優質的繁殖環境。</p>
+                <p>高油脂會惡化微生態。補充期間維持 <span class="highlight">清淡、天然飲食</span>，能提供菌株優質繁殖環境。</p>
             </div>
             <div class="ng-box">
-                <h3>高度加工添加劑 (香腸)</h3>
-                <p>亞硝酸鹽與人工防腐劑是益生菌天敵。建議搭配 <span class="highlight">天然原形食物</span>，方能發揮產品最大健康價值。</p>
+                <h3>加工食品添加劑 (香腸)</h3>
+                <p>亞硝酸鹽與防腐劑是益生菌天敵。建議搭配 <span class="highlight">原形食物</span>，方能發揮產品最大價值。</p>
             </div>
         </div>
     </section>
 
     <section id="usage">
-        <h2 class="section-title">🕒 產品食用與注意事項</h2>
+        <h2 class="section-title">🕒 產品食用建議</h2>
         <div class="knowledge-grid">
             <div class="info-box">
-                <h3>每日建議劑量</h3>
+                <h3>每日建議量</h3>
                 <p>成人：每日 2-3 次，每次 1 包。<br>5歲以上兒童：每日 1 次，每次 1 包。</p>
             </div>
             <div class="info-box">
                 <h3>最佳食用時機</h3>
-                <p>建議於 <strong>睡前空腹</strong> 或 <strong>飯前</strong> 食用。此時胃酸度較低，有助於菌株順利抵達定殖。</p>
+                <p>建議於 <strong>睡前空腹</strong> 或 <strong>飯前</strong> 食用。此時環境最有利於菌株順利抵達定殖。</p>
             </div>
             <div class="info-box">
                 <h3>過敏原與保存</h3>
-                <p>含有 <strong>牛奶、大豆</strong>。請置於陰涼乾燥處，避免高溫。懷孕或特殊體質請諮詢醫師。</p>
+                <p>含有 <strong>牛奶、大豆</strong>。請置於陰涼乾燥處，避免高溫。特殊體質請諮詢醫師。</p>
             </div>
         </div>
     </section>
@@ -196,7 +206,7 @@
         <div class="qa-container">
             <div class="qa-item">
                 <details><summary>糖尿病患者可以安心食用嗎？</summary>
-                <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低 (0.7g)。對於血糖波動影響極微，適合日常補充。</div></details>
+                <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低 (0.7g)。對血糖波動影響極微，適合日常補充。</div></details>
             </div>
             <div class="qa-item">
                 <details><summary>素食族群可以食用嗎？</summary>
@@ -204,7 +214,7 @@
             </div>
             <div class="qa-item">
                 <details><summary>為什麼這款產品定價較高？</summary>
-                <div class="qa-content">我們一盒 90 包是完整的重建方案。日均成本僅約 30 元，卻能獲得總菌量 9000 億的深度管理，這比短期廉價包裝更具價值。</div></details>
+                <div class="qa-content">我們一盒 90 包是完整重建方案。日均成本僅約 30 元，卻能獲得總活菌量 9000 億的深度管理。</div></details>
             </div>
         </div>
     </section>
@@ -212,7 +222,7 @@
     <section id="contact">
         <div class="contact-box">
             <h2>聯繫品牌經理</h2>
-            <p>如有大宗採購或商業合作，歡迎隨時來信：</p>
+            <p>如有大宗採購或合作諮詢，歡迎隨時來信：</p>
             <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a>
             <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 LAT 暢悠樂生技 ｜ 官方技術導覽平台</p>
         </div>
