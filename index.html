@@ -3,179 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>暢悠樂 Plus 百億益生菌 | 官方深度導覽頁</title>
+    <title>暢悠樂 Plus 百億益生菌 | 官方旗艦導航</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --brand-pink: #f8c6d1; --dark-pink: #d67b8e; --gold: #c5a059; --bg-light: #fff9fa; --text-main: #444; }
-        * { box-sizing: border-box; }
-        body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; scroll-behavior: smooth; }
-        
+        :root {
+            --primary-pink: #fdf2f2; /* 淺粉背景 */
+            --brand-pink: #f4abb2;   /* 產品主色粉 */
+            --complementary-teal: #008b8b; /* 互補色：深翡翠綠（用於按鈕，更醒目專業） */
+            --teal-hover: #006666;
+            --text-main: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0; padding: 0; color: var(--text-main);
+            background-color: #fff; line-height: 1.7;
+        }
+
         /* 導覽列 */
-        nav { background: #fff; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-around; flex-wrap: wrap; }
-        nav a { text-decoration: none; color: var(--dark-pink); font-size: 0.9rem; font-weight: bold; margin: 5px; }
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 10%; background: #fff;
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
 
-        /* 首屏 Hero */
-        .hero { background: linear-gradient(135deg, #fff 0%, var(--brand-pink) 100%); padding: 80px 20px; text-align: center; }
-        .hero h1 { color: var(--dark-pink); font-size: 2.8rem; margin: 0; letter-spacing: 2px; }
-        .hero p { font-size: 1.2rem; color: #777; margin: 20px 0; }
-        .badge { background: var(--dark-pink); color: #fff; padding: 5px 20px; border-radius: 50px; font-size: 0.9rem; }
+        .logo { font-size: 22px; font-weight: 700; color: var(--brand-pink); letter-spacing: 1px; }
+        
+        nav { display: flex; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-main); margin-left: 25px; font-size: 15px; transition: 0.3s; }
+        nav a:hover { color: var(--brand-pink); }
 
-        /* 核心數據 */
-        .spec-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
-        .spec-card { background: #fff; padding: 20px; border-radius: 15px; width: 150px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .spec-card strong { display: block; font-size: 1.8rem; color: var(--dark-pink); }
+        /* 互補色按鈕 - 讓它在粉色中跳出來 */
+        .btn-cta {
+            background: var(--complementary-teal);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 139, 139, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-cta:hover {
+            background: var(--teal-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 139, 139, 0.4);
+        }
 
-        /* 區塊標題 */
-        section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
-        .section-title { text-align: center; color: var(--dark-pink); margin-bottom: 40px; position: relative; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--dark-pink); margin: 10px auto; }
+        /* Hero 主視覺 */
+        .hero {
+            display: flex; align-items: center;
+            padding: 60px 10%;
+            background: linear-gradient(135deg, #fff 0%, var(--primary-pink) 100%);
+            min-height: 70vh;
+        }
+        .hero-text { flex: 1.2; padding-right: 50px; }
+        .hero-text h1 { font-size: 48px; color: #333; line-height: 1.2; margin-bottom: 25px; }
+        .hero-text p { font-size: 18px; color: #666; margin-bottom: 35px; }
 
-        /* 菌種表格 - 自適應 */
-        .table-wrapper { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
-        th, td { border: 1px solid #eee; padding: 15px; text-align: left; }
-        th { background: var(--brand-pink); color: #888; }
-        .strain-tag { background: #fdf2f4; color: var(--dark-pink); padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .spec-tags { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tag { background: rgba(244, 171, 178, 0.2); color: #d63384; padding: 6px 16px; border-radius: 5px; font-size: 14px; font-weight: 700; }
 
-        /* 食用指南卡片 */
-        .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .usage-box { background: var(--bg-light); padding: 25px; border-radius: 15px; border: 1px dashed var(--dark-pink); }
-        .usage-box h3 { color: var(--dark-pink); margin-top: 0; }
+        .hero-image { flex: 0.8; }
+        .hero-image img { width: 100%; filter: drop-shadow(0 15px 40px rgba(0,0,0,0.1)); }
 
-        /* Q&A 手風琴 */
-        .qa-item { margin-bottom: 10px; border-bottom: 1px solid #eee; }
-        summary { padding: 15px; font-weight: bold; cursor: pointer; color: #d67b8e; list-style: none; position: relative; }
-        summary::after { content: '+'; position: absolute; right: 20px; }
-        details[open] summary::after { content: '-'; }
-        .qa-content { padding: 0 15px 15px 15px; color: #666; font-size: 0.95rem; }
+        /* 菌種展示 - 100% 精準對齊包裝 */
+        .section-padding { padding: 80px 10%; text-align: center; }
+        .grid-9 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; margin-top: 50px;
+        }
+        .strain-card {
+            background: #fff; padding: 25px; border-radius: 12px;
+            border: 1px solid #eee; transition: 0.3s;
+            text-align: left; position: relative; overflow: hidden;
+        }
+        .strain-card::before {
+            content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--brand-pink);
+        }
+        .strain-card:hover { border-color: var(--brand-pink); transform: translateY(-5px); }
+        .strain-card h3 { margin: 0; color: #333; font-size: 18px; }
+        .strain-card span { display: block; font-size: 13px; color: #999; margin-top: 5px; font-family: 'Arial', sans-serif; }
 
-        /* 聯絡區 */
-        .contact-box { background: #444; color: #fff; text-align: center; padding: 50px 20px; border-radius: 20px; }
-        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.2rem; }
+        /* 知識分享區 */
+        .knowledge-bg { background: #fdfdfd; padding: 80px 10%; }
+        .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .info-item { background: #fff; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: left; }
+        .info-item h4 { font-size: 20px; color: var(--complementary-teal); margin-top: 0; }
+        .info-item p { font-size: 15px; color: #777; }
 
-        /* 響應式調整 */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .usage-grid { grid-template-columns: 1fr; }
-            .spec-card { width: 45%; }
+        footer { background: #fafafa; padding: 50px 10%; text-align: center; border-top: 1px solid #eee; }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-text { padding-right: 0; margin-bottom: 50px; }
+            .info-cards { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+<header>
+    <div class="logo">LAT 暢悠樂</div>
     <nav>
-        <a href="#strains">11種專利菌</a>
-        <a href="#usage">使用方法</a>
-        <a href="#qa">常見問題</a>
-        <a href="#contact">聯繫我們</a>
+        <a href="#strains">9大菌種解密</a>
+        <a href="#knowledge">益生菌知識</a>
+        <a href="https://shopee.tw" class="btn-cta">立即下單購</a>
     </nav>
+</header>
 
-    <section class="hero">
-        <span class="badge">LAT 暢悠樂生技 官方旗艦</span>
-        <h1>暢悠樂 Plus 百億益生菌</h1>
-        <p>專業研發 90 包入：針對台灣體質設計的深度管理方案</p>
-        
-        <div class="spec-container">
-            <div class="spec-card"><strong>90</strong>入/盒</div>
-            <div class="spec-card"><strong>2.0g</strong>單包足量</div>
-            <div class="spec-card"><strong>100億</strong>活菌保證</div>
+<section class="hero">
+    <div class="hero-text">
+        <div class="spec-tags">
+            <span class="tag">90包大容量</span>
+            <span class="tag">2.0g/條</span>
+            <span class="tag">100億活菌</span>
         </div>
+        <h1>體質重建計畫：<br><span style="color:var(--brand-pink)">90天</span> 的完整守護</h1>
+        <p>不只是吃心安，更是為了有感的改變。暢悠樂 Plus 嚴選 9 種機能菌株，專為台灣人體質設計，給予消化道最紮實的支撐。</p>
+        <div style="display:flex; gap:15px; justify-content: flex-start;">
+            <a href="https://shopee.tw" class="btn-cta">前往蝦皮領取優惠</a>
+            <a href="#knowledge" style="padding: 12px 28px; color:var(--text-main); text-decoration:none; font-weight:700;">查看衛教知識 ↓</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="https://via.placeholder.com/600x400/fdf2f2/f4abb2?text=Product+Hero" alt="暢悠樂 Plus 90包大容量">
+    </div>
+</section>
 
-        <a href="https://shopee.tw" target="_blank" style="display: inline-block; margin-top: 40px; padding: 18px 45px; background: var(--dark-pink); color: #fff; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(214,123,142,0.4);">前往蝦皮官方授權賣場 ➔</a>
-    </section>
+<section id="strains" class="section-padding">
+    <h2 style="font-size:32px;">精準配方：九大複合菌株</h2>
+    <p style="color:#999;">百分之百對齊包裝成分，專業生技透明公開</p>
+    
+    <div class="grid-9">
+        <div class="strain-card"><h3>嗜酸乳桿菌</h3><span>Lactobacillus acidophilus LA1063</span></div>
+        <div class="strain-card"><h3>長雙歧桿菌</h3><span>Bifidobacterium longum BL986</span></div>
+        <div class="strain-card"><h3>副乾酪乳桿菌</h3><span>Lactobacillus paracasei LPC12</span></div>
+        <div class="strain-card"><h3>鼠李糖乳桿菌</h3><span>Lactobacillus rhamnosus LRH10</span></div>
+        <div class="strain-card"><h3>發酵乳桿菌</h3><span>Lactobacillus fermentum LF26</span></div>
+        <div class="strain-card"><h3>嗜熱鏈球菌</h3><span>Streptococcus thermophilus ST30</span></div>
+        <div class="strain-card"><h3>瑞士乳桿菌</h3><span>Lactobacillus helveticus LH43</span></div>
+        <div class="strain-card"><h3>脆壁克魯維酵母菌</h3><span>Kluyveromyces marxianus KM116</span></div>
+        <div class="strain-card"><h3>酪酸菌</h3><span>Clostridium Butyricum UBCB70</span></div>
+    </div>
+</section>
 
-    <section id="strains">
-        <h2 class="section-title">🧬 11 種複合菌種詳細特性</h2>
-        <p style="text-align: center; color: #888;">拒絕來源不明的廉價基底菌，我們只用具備「身分證編號」的頂級菌株</p>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>菌種名稱 (編號)</th>
-                        <th>生理特性</th>
-                        <th>核心功能</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="strain-tag">LA1063</span> 嗜酸乳桿菌</td>
-                        <td>具極強定殖力，能耐受強酸環境。</td>
-                        <td>建立腸道第一道防線，調整過敏體質。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="strain-tag">BL986</span> 長雙歧桿菌</td>
-                        <td>人體原生菌種，能維持菌叢生態多樣性。</td>
-                        <td>改善脹氣與不規律排便困擾。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="strain-tag">LPC12</span> 副乾酪乳桿菌</td>
-                        <td>針對亞洲環境敏感族群臨床研發。</td>
-                        <td>減少換季哈啾，增強呼吸道防護。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="strain-tag">UBCB70</span> 酪酸菌</td>
-                        <td>專利包埋，能在腸道產生關鍵丁酸。</td>
-                        <td>修復黏膜屏障，解決反覆性腹瀉。</td>
-                    </tr>
-                </tbody>
-            </table>
+<section id="knowledge" class="knowledge-bg">
+    <div style="text-align:center; margin-bottom:50px;">
+        <h2 style="font-size:32px;">益生菌教育中心</h2>
+        <p>了解產品背後的科學，聰明選擇不踩雷</p>
+    </div>
+    <div class="info-cards">
+        <div class="info-item">
+            <h4>💡 為什麼是「90天」？</h4>
+            <p>腸道細胞代謝週期約為三個月。90包的大容量設計，是為了確保您能完成完整的體質重建計畫，避免斷斷續續導致前功盡棄。</p>
         </div>
-        <p style="font-size: 0.8rem; color: #aaa; margin-top: 15px;">* 完整 11 種菌株包含：L. acidophilus, B. longum, L. paracasei, L. rhamnosus, L. fermentum, S. thermophilus, L. helveticus... 等。</p>
-    </section>
+        <div class="info-item">
+            <h4>🛡️ 活菌到達率的關鍵</h4>
+            <p>採用專利包埋技術，如同為益生菌穿上鎧甲，能有效對抗胃酸與熱度，確保 100 億活菌能穩定在消化道定殖。</p>
+        </div>
+        <div class="info-item">
+            <h4>🥄 2.0g 劑量的意義</h4>
+            <p>足量的粉末不僅包含活菌，更蘊含了足夠的益生元（菌的食物）。2.0g 的紮實份量，提供比市售 1g 產品更優質的生物利用率。</p>
+        </div>
+    </div>
+</section>
 
-    <section id="usage" style="background: #fff;">
-        <h2 class="section-title">🕒 精準操作與使用建議</h2>
-        <div class="usage-grid">
-            <div class="usage-box">
-                <h3>成人 (12歲以上)</h3>
-                <p><strong>保養期：</strong> 每日 1 包，建議睡前空腹食用。</p>
-                <p><strong>加強期：</strong> 每日 2-3 包，分早晚飯後食用，針對長期卡關者。</p>
-            </div>
-            <div class="usage-box">
-                <h3>兒童 (1-12歲)</h3>
-                <p><strong>保養期：</strong> 每日 0.5 - 1 包。</p>
-                <p><strong>加強期：</strong> 每日 1 包，可加入 40°C 以下溫奶或冷水中。</p>
-            </div>
-        </div>
-        <p style="text-align: center; color: #d67b8e; margin-top: 20px; font-weight: bold;">⚠️ 溫馨提示：請勿搭配超過 40°C 之熱飲，以確保菌株活性。</p>
-    </section>
-
-    <section id="qa">
-        <h2 class="section-title">❓ 常見問題 Q&A</h2>
-        <div class="qa-item">
-            <details>
-                <summary>孕婦、哺乳媽咪可以吃嗎？</summary>
-                <div class="qa-content">絕對可以。本產品成分純淨無添加，孕期補充益生菌不僅能維持母體順暢，更能透過垂直傳遞幫助寶寶建立最初的優良體質。</div>
-            </details>
-        </div>
-        <div class="qa-item">
-            <details>
-                <summary>正在吃西藥或抗生素期間可以吃嗎？</summary>
-                <div class="qa-content">可以。但建議與抗生素的使用時間間隔 2 小時以上，避免益生菌活性被藥物影響。</div>
-            </details>
-        </div>
-        <div class="qa-item">
-            <details>
-                <summary>為什麼你們的定價 NT$ 2,700 比別人貴？</summary>
-                <div class="qa-content">市售平價益生菌通常僅 30 入且菌數低。我們單盒即有 90 包（三個月量），總活菌量高達 9000 億。平均單包僅 30 元，卻能獲得完整的體質重建計畫。</div>
-            </details>
-        </div>
-        <div class="qa-item">
-            <details>
-                <summary>素食者可以食用嗎？</summary>
-                <div class="qa-content">本產品內含乳酸菌，成分屬奶素可食。</div>
-            </details>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-box">
-            <h2>聯繫品牌經理</h2>
-            <p>如有大宗採購、商業合作或產品售後諮詢，歡迎來信：</p>
-            <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a>
-            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 LAT 暢悠樂生技 ｜ 專業菌種研發中心</p>
-        </div>
-    </section>
+<footer>
+    <p style="font-size:14px; color:#bbb;">© 2026 LAT 暢悠樂生技 版權所有<br>官方認證導航頁面 | 建議售價 NT$2,700</p>
+</footer>
 
 </body>
 </html>
