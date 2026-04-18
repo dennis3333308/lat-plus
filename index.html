@@ -27,8 +27,9 @@
         .btn-nav { 
             text-decoration: none; background: var(--complementary-teal); color: #fff !important; 
             padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
-        .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); }
+        .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); box-shadow: 0 5px 12px rgba(0,0,0,0.15); }
 
         /* Hero 區 */
         .hero { 
@@ -62,7 +63,8 @@
 
         /* 益生菌教室網格 */
         .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .ng-box { background: white; padding: 30px; border-radius: 20px; border-top: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .ng-box { background: white; padding: 30px; border-radius: 20px; border-top: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .ng-box:hover { transform: translateY(-5px); }
         .ng-box h3 { color: var(--dark-pink); margin-top: 0; font-size: 1.2rem; display: flex; align-items: center; }
         .ng-box h3::before { content: 'NG'; background: #ff4d4d; color: white; padding: 2px 8px; border-radius: 4px; margin-right: 10px; font-size: 0.8rem; }
         .ng-box p { font-size: 0.95rem; color: #666; }
@@ -83,7 +85,8 @@
 
         /* 聯絡區 */
         .contact-box { background: #333; color: #fff; text-align: center; padding: 60px 20px; border-radius: 30px; margin-top: 50px; }
-        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; }
+        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; transition: 0.3s; }
+        .contact-box a:hover { color: #fff; }
 
         @media (max-width: 768px) {
             .hero { text-align: center; }
@@ -127,7 +130,7 @@
         <div class="table-wrapper">
             <table>
                 <thead>
-                    <tr><th width="35%">菌種組成 (編號)</th><th>營養師臨床解析</th></tr>
+                    <tr><th width="30%">菌種組成 (編號)</th><th>營養師臨床解析</th></tr>
                 </thead>
                 <tbody>
                     <tr><td><span class="strain-tag">LA1063</span> 嗜酸乳桿菌</td><td>強效耐酸定殖，建立消化道首道物理防禦屏障。</td></tr>
@@ -153,7 +156,7 @@
             </div>
             <div class="ng-box">
                 <h3>機能性飲品干擾 (咖啡)</h3>
-                <p>咖啡因與多酚具有生物鹼特性，可能抑制定殖率。若有飲用習慣，請與補充時間 <span class="highlight">間隔 120 分鐘</span>。</p>
+                <p>咖啡因與多酚具有生物鹼特性，可能抑制定殖率。若有飲用習慣，請與補充時間 <span class="highlight">間隔 2 小時</span>。</p>
             </div>
             <div class="ng-box">
                 <h3>藥物化學衝突 (中西藥)</h3>
@@ -201,7 +204,7 @@
             </div>
             <div class="qa-item">
                 <details><summary>為什麼這款產品定價較高？</summary>
-                <div class="qa-content">我們一盒 90 包是完整的重建方案。日均成本僅約 30 元，卻能獲得總活菌量 9000 億的深度管理，這比短期廉價包裝更具價值。</div></details>
+                <div class="qa-content">我們一盒 90 包是完整的重建方案。日均成本僅約 30 元，卻能獲得總菌量 9000 億的深度管理，這比短期廉價包裝更具價值。</div></details>
             </div>
         </div>
     </section>
