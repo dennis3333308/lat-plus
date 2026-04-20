@@ -24,92 +24,22 @@
             align-items: center;
         }
         .container { width: 100%; max-width: 500px; }
-        
-        /* 使用者資訊 */
-        .user-profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 10px;
-        }
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            margin-right: 15px;
-            background: #333;
-        }
+        .user-profile { display: flex; align-items: center; margin-bottom: 25px; padding: 10px; }
+        .user-avatar { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); margin-right: 15px; background: #333; }
         .user-name { font-size: 1.2rem; font-weight: bold; }
-
-        /* 餘額卡片 */
-        .balance-card {
-            background: linear-gradient(135deg, #1e1e1e 0%, #333 100%);
-            border: 1px solid var(--gold);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 25px;
-            width: 100%;
-        }
+        .balance-card { background: linear-gradient(135deg, #1e1e1e 0%, #333 100%); border: 1px solid var(--gold); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 25px; width: 100%; }
         .balance-title { font-size: 0.9rem; color: #aaa; margin-bottom: 10px; letter-spacing: 1px; }
         .balance-amount { font-size: 2.5rem; font-weight: bold; color: var(--gold); }
-
-        /* 數據網格 */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-            width: 100%;
-        }
-        .stat-box {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #333;
-        }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; width: 100%; }
+        .stat-box { background: var(--card-bg); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #333; }
         .stat-value { font-size: 1.4rem; font-weight: bold; color: #fff; }
         .stat-label { font-size: 0.8rem; color: #888; margin-top: 5px; }
-
-        /* 操作按鈕 */
-        .btn {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-        }
+        .btn { width: 100%; padding: 15px; border: none; border-radius: 50px; font-size: 1rem; font-weight: bold; margin-bottom: 15px; cursor: pointer; transition: 0.3s; text-decoration: none; display: block; text-align: center; }
         .btn-gold { background-color: var(--gold); color: #000; }
         .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
-
-        /* 歷史紀錄 */
-        .history-section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            width: 100%;
-        }
+        .history-section { background: var(--card-bg); border-radius: 15px; padding: 20px; width: 100%; }
         .history-title { font-weight: bold; margin-bottom: 15px; font-size: 1rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .history-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #2a2a2a;
-            font-size: 0.9rem;
-        }
-        .status-plus { color: #4caf50; font-weight: bold; }
-        
+        .history-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 0.9rem; }
         .footer-note { font-size: 0.7rem; color: #555; text-align: center; margin-top: 30px; }
     </style>
 </head>
@@ -118,7 +48,7 @@
     <div class="container">
         <div class="user-profile">
             <img src="" alt="" id="userAvatar" class="user-avatar">
-            <div class="user-name" id="userName">載入中...</div>
+            <div class="user-name" id="userName">驗證身分中...</div>
         </div>
 
         <div class="balance-card">
@@ -159,42 +89,50 @@
         // 1. 初始化 LIFF
         async function main() {
             try {
-                await liff.init({ liffId: "你的_LIFF_ID" }); // 這裡填入你在 LINE Developers 申請的 ID
+                await liff.init({ liffId: "2009844406-JjOr1WN0" }); 
                 if (liff.isLoggedIn()) {
                     getUserProfile();
                 } else {
                     liff.login();
                 }
             } catch (err) {
-                console.log("LIFF 初始化失敗", err);
+                console.error("LIFF 初始化失敗", err);
+                document.getElementById("userName").innerText = "連線失敗";
             }
         }
 
-        // 2. 抓取 LINE 個人資料
+        // 2. 抓取 LINE 資料
         async function getUserProfile() {
-            const profile = await liff.getProfile();
-            document.getElementById("userName").innerText = profile.displayName;
-            document.getElementById("userAvatar").src = profile.pictureUrl;
-            
-            // 這裡未來可以串接 Google Sheets API 來抓取真實餘額
-            fetchUserBalance(profile.userId);
+            try {
+                const profile = await liff.getProfile();
+                document.getElementById("userName").innerText = profile.displayName;
+                document.getElementById("userAvatar").src = profile.pictureUrl;
+                
+                // 這裡我幫你把 fetchUserBalance 串接起來
+                fetchUserBalance(profile.userId);
+            } catch (err) {
+                console.error("抓取個人資料失敗", err);
+            }
         }
 
-        // 3. 模擬抓取餘額 (待串接 Google Sheets)
+        // 3. 抓取餘額數據
         function fetchUserBalance(userId) {
-            console.log("抓取用戶餘額, ID:", userId);
-            // 測試期間手動顯示模擬數據
-            document.getElementById("userBalance").innerText = "$1,200";
-            document.getElementById("inviteCount").innerText = "2 人";
-            document.getElementById("totalEarned").innerText = "$1,200";
+            // 目前先用模擬數據，之後教你串 Google Sheets API
+            console.log("當前使用者 ID:", userId);
+            
+            // 只要名字跑出來了，這下面的錢你可以隨便改來測試
+            document.getElementById("userBalance").innerText = "$0"; 
+            document.getElementById("inviteCount").innerText = "0 人";
+            document.getElementById("totalEarned").innerText = "$0";
         }
 
         function requestWithdraw() {
-            alert("提現申請已送出！管理員將於 3 個工作日內與您對帳。");
+            alert("提現功能申請中，請洽管理員。");
         }
 
         function shareReferral() {
-            alert("推薦連結已複製：https://line.me/R/ti/p/@你的LINE帳號");
+            // 未來可以自動生成帶有邀請碼的連結
+            alert("連結產生成功，請長按複製。");
         }
 
         main();
