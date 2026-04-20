@@ -18,7 +18,6 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; line-height: 1.8; }
         
-        /* 導覽列 */
         nav { 
             background: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: center; 
@@ -31,7 +30,6 @@
         .btn-nav.dashboard { background: #06C755; }
         .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); }
 
-        /* Hero 區 */
         .hero { 
             background: linear-gradient(135deg, #fff 0%, var(--brand-pink) 100%); 
             padding: 60px 5%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
@@ -43,29 +41,24 @@
         .badge { background: var(--dark-pink); color: #fff; padding: 5px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; }
         .hero h1 { color: var(--dark-pink); font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 15px 0; letter-spacing: 2px; line-height: 1.2; }
 
-        /* 核心數據 */
         .spec-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
         .spec-card { background: #fff; padding: 20px; border-radius: 15px; flex: 1; min-width: 120px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid var(--brand-pink); text-align: center; }
         .spec-card strong { display: block; font-size: 1.8rem; color: var(--dark-pink); }
 
-        /* 通用標題 */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; color: var(--dark-pink); margin-bottom: 50px; font-size: clamp(1.8rem, 4vw, 2.2rem); }
 
-        /* 表格佈局 */
         .table-wrapper { width: 100%; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); background: #fff; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #f0f0f0; padding: 18px; text-align: left; }
         th { background: var(--brand-pink); color: #555; }
         .strain-tag { background: var(--bg-light); color: var(--dark-pink); padding: 4px 10px; border-radius: 4px; font-weight: bold; border: 1px solid var(--brand-pink); display: inline-block; margin-bottom: 5px; }
 
-        /* 益生菌教室網格 */
         .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
         .tech-box { background: white; padding: 30px; border-radius: 20px; border-top: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .tech-box h3 { color: var(--dark-pink); margin-top: 0; font-size: 1.2rem; margin-bottom: 15px; }
         .tech-footer { background: #f0f0f0; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; display: inline-block; margin-top: 15px; color: #666; }
 
-        /* Q&A 區塊設計 */
         .qa-container { background: var(--bg-light); padding: 40px; border-radius: 30px; }
         .qa-item { margin-bottom: 15px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: 0.3s; }
         summary { padding: 22px 25px; font-weight: bold; cursor: pointer; display: flex; align-items: center; list-style: none; position: relative; }
@@ -76,7 +69,6 @@
         }
         .qa-content { padding: 0 25px 25px 68px; color: #777; font-size: 0.95rem; border-top: 1px solid #f9f9f9; }
 
-        /* 聯絡區 */
         .contact-box { background: #333; color: #fff; text-align: center; padding: 60px 20px; border-radius: 30px; margin-top: 50px; }
         .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; }
 
@@ -92,8 +84,9 @@
 
     <nav>
         <a href="#strains" class="btn-nav">9大菌種解析</a>
-        <a href="#knowledge" class="btn-nav">益生菌教室</a>
+        <a href="#knowledge" class="btn-nav">黑科技教室</a>
         <a href="#qa" class="btn-nav">常見問題</a>
+        <a href="#contact" class="btn-nav">聯絡我們</a>
         <a href="dashboard.html" class="btn-nav dashboard">💰 會員分潤後台</a>
     </nav>
 
@@ -102,13 +95,11 @@
             <span class="badge">LAT 暢悠樂生技 官方認證</span>
             <h1>暢悠樂 Plus<br>百億益生菌</h1>
             <p>1 盒 90 包入：針對亞洲人體質研發的「90 天深層管理方案」。<br>科學定量 2.0g，確保每一口都是 100 億活菌的精準守護。</p>
-            
             <div class="spec-container">
                 <div class="spec-card"><strong>90</strong>入 / 盒</div>
                 <div class="spec-card"><strong>2.0g</strong>單包足量</div>
                 <div class="spec-card"><strong>100億</strong>活菌保證</div>
             </div>
-
             <a href="https://line.me/R/ti/p/@你的LINE帳號" class="btn-nav" style="margin-top: 40px; padding: 18px 45px; font-size: 1.1rem; display: inline-block;">立即加入 LINE 官方帳號 ➔</a>
         </div>
         <div class="hero-image">
@@ -136,7 +127,6 @@
                 </tbody>
             </table>
         </div>
-        <p style="text-align: center; margin-top: 20px; font-weight: bold; color: var(--dark-pink);">精英配方，聯手打造全方位防護</p>
     </section>
 
     <section id="knowledge">
@@ -145,7 +135,7 @@
             <div class="tech-box">
                 <h3>LAT-Plus 黑科技定殖技術</h3>
                 <p><strong>耐酸耐鹽測試：</strong>模擬胃酸 pH 3.0，確保好菌活性抵達，抵禦膽鹽侵蝕。</p>
-                <p><strong>Caco-2細胞吸附實驗：</strong>數據顯示 90% 以上超高吸附率，長效穩定定殖作用。</p>
+                <p><strong>Caco-2細胞吸附實驗：</strong>數據顯示 90% 以上超高吸附率，長效定殖作用。</p>
                 <div class="tech-footer">黑科技定殖，看不見的防護力</div>
             </div>
             <div class="tech-box">
@@ -160,12 +150,33 @@
     <section id="qa">
         <h2 class="section-title">常見問題解答</h2>
         <div class="qa-container">
+            
+            <div style="margin-bottom: 25px; color: var(--dark-pink); font-weight: bold; border-left: 4px solid var(--dark-pink); padding-left: 15px;">🔍 產品食用指南</div>
+            
             <div class="qa-item">
                 <details>
-                    <summary>糖尿病患者可以安心食用嗎？</summary>
-                    <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低 (0.7g)。對於血糖波動影響極微，適合日常補充。</div>
+                    <summary>什麼時候吃效果最好？</summary>
+                    <div class="qa-content">建議「空腹」或「睡前」食用效果最佳。此時胃酸分泌較少，配合我們的黑科技定殖技術，能讓百億活菌更順利抵達腸道發揮作用。</div>
                 </details>
             </div>
+
+            <div class="qa-item">
+                <details>
+                    <summary>成人與小朋友一天最多能吃幾包？</summary>
+                    <div class="qa-content">
+                        • <strong>成人：</strong>一般保健每日 1 包；加強期每日 2-3 包。<br>
+                        • <strong>小朋友：</strong>1 歲以上開始吃副食品後即可食用。日常保健每日 0.5-1 包；若需加強調整體質，每日上限為 2 包。
+                    </div>
+                </details>
+            </div>
+
+            <div class="qa-item">
+                <details>
+                    <summary>生病中、服藥期間可以食用嗎？</summary>
+                    <div class="qa-content">可以。但若正在服用「抗生素」，請務必間隔 2 小時以上再食用益生菌，以免抗生素影響益生菌活性。重大疾病患者建議諮詢醫師。</div>
+                </details>
+            </div>
+
             <div class="qa-item">
                 <details>
                     <summary>素食族群可以食用嗎？</summary>
@@ -173,34 +184,46 @@
                 </details>
             </div>
 
+            <div class="qa-item">
+                <details>
+                    <summary>糖尿病或控制飲食者可以吃嗎？</summary>
+                    <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低 (0.7g)，不會對血糖造成劇烈波動，請安心食用。</div>
+                </details>
+            </div>
+
+            <div style="margin: 35px 0 25px 0; color: var(--complementary-teal); font-weight: bold; border-left: 4px solid var(--complementary-teal); padding-left: 15px;">💰 會員分潤制度</div>
+
             <div class="qa-item" style="border-left: 4px solid var(--complementary-teal);">
                 <details>
                     <summary>如何開啟「分潤權益」賺取推薦獎金？</summary>
-                    <div class="qa-content">升級為「終身會員」後，您將擁有專屬的分潤中心頁面。透過分享連結，每一位朋友的成功訂購都能為您帶來實質獎金。詳情請加入 LINE 諮詢。</div>
+                    <div class="qa-content">只要一次性支付 NT$3,000 入會費升級為「終身會員」，系統即刻配發您的個人推薦連結。每一筆經由您分享而產生的訂單，皆可享有高額分潤回饋。</div>
                 </details>
             </div>
+
             <div class="qa-item" style="border-left: 4px solid var(--complementary-teal);">
                 <details>
-                    <summary>提現流程需要多久時間？有手續費嗎？</summary>
-                    <div class="qa-content">提現申請由人工審核對帳，確保每一筆分潤準確無誤。審核通過後約 3 個工作日內匯入指定帳戶，目前推廣期間不收取行政手續費。</div>
+                    <summary>提現流程需要多久時間？</summary>
+                    <div class="qa-content">為了保障資金安全，所有提現申請均由人工審核。請於後台提交申請，我們將於 3 個工作日內將獎金匯入您的指定帳戶。</div>
                 </details>
             </div>
+
             <div class="qa-item">
                 <details>
                     <summary>為什麼這款產品定價較高？</summary>
-                    <div class="qa-content">我們一盒 90 包是完整的重建方案。日均成本僅約 30 元，卻能獲得總菌量 9000 億的深度管理，且具備會員分潤回饋機制。</div>
+                    <div class="qa-content">暢悠樂 Plus 為 90 包大容量包裝，是業界少見的「完整 90 天重建方案」。換算單包僅約 30 元，卻能獲得 9 種專利菌株與 100 億活菌的保護。</div>
                 </details>
             </div>
+
         </div>
     </section>
 
     <section id="contact">
         <div class="contact-box">
             <h2>聯繫品牌經理</h2>
-            <p>如有大宗採購或合作諮詢，歡迎隨時來信：</p>
+            <p>如有採購或合作諮詢，歡迎隨時來信：</p>
             <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a>
             <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 LAT 暢悠樂生技 ｜ 官方技術導覽平台</p>
-            <p style="margin-top: 10px; font-size: 0.7rem; opacity: 0.4;">本資料僅提供內部教育訓練與品牌會員參考，不作為廣告宣傳用途</p>
+            <p style="font-size: 0.7rem; opacity: 0.4;">本資料僅提供內部教育訓練與品牌會員參考，不作為廣告用途。</p>
         </div>
     </section>
 
