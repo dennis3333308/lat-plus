@@ -86,6 +86,10 @@
     </div>
 
     <script>
+        // 全域變數存儲當前數據
+        let currentBalance = 0;
+        let currentUserId = "";
+
         // 1. 初始化 LIFF
         async function main() {
             try {
@@ -107,34 +111,56 @@
                 const profile = await liff.getProfile();
                 document.getElementById("userName").innerText = profile.displayName;
                 document.getElementById("userAvatar").src = profile.pictureUrl;
+                currentUserId = profile.userId;
                 
-                // --- 加入下面這一行來顯示你的 ID ---
-                alert("你的 ID 是: " + profile.userId);
-                // --------------------------------
-                
+                // 執行抓取試算表餘額
                 fetchUserBalance(profile.userId);
             } catch (err) {
                 console.error("抓取個人資料失敗", err);
             }
         }
-        // 3. 抓取餘額數據
-        function fetchUserBalance(userId) {
-            // 目前先用模擬數據，之後教你串 Google Sheets API
-            console.log("當前使用者 ID:", userId);
+
+        // 3. 從 Google Sheets 抓取真實數據
+        async function fetchUserBalance(userId) {
+            const gasUrl = "https://script.google.com/macros/s/AKfycbwCNBm8jlZ3n2u9Kgec50vN2l0Oea_iWlyic514FwPyWKUs7q8DSbc_AM9j8-w9rgBhjQ/exec";
             
-            // 只要名字跑出來了，這下面的錢你可以隨便改來測試
-            document.getElementById("userBalance").innerText = "$0"; 
-            document.getElementById("inviteCount").innerText = "0 人";
-            document.getElementById("totalEarned").innerText = "$0";
+            try {
+                const response = await fetch(`${gasUrl}?userId=${userId}`);
+                const data = await response.json();
+                
+                // 更新畫面數值
+                currentBalance = data.balance;
+                document.getElementById("userBalance").innerText = "$" + data.balance.toLocaleString();
+                document.getElementById("inviteCount").innerText = data.inviteCount + " 人";
+                document.getElementById("totalEarned").innerText = "$" + data.totalEarned.toLocaleString();
+                
+            } catch (err) {
+                console.error("抓取數據失敗:", err);
+                document.getElementById("userBalance").innerText = "讀取失敗";
+            }
         }
 
+        // 4. 申請提現按鈕邏輯
         function requestWithdraw() {
-            alert("提現功能申請中，請洽管理員。");
+            if (currentBalance <= 0) {
+                alert("目前餘額為 0，趕快去分享賺分潤吧！");
+            } else {
+                alert(`已收到您的提現申請（NT$ ${currentBalance}）！\n請截圖此畫面傳送至官方帳號，我們將進行人工審核。`);
+            }
         }
 
+        // 5. 生成推廣連結邏輯
         function shareReferral() {
-            // 未來可以自動生成帶有邀請碼的連結
-            alert("連結產生成功，請長按複製。");
+            // 生成帶有專屬 ID 的連結（假設連結到首頁）
+            const refLink = `https://dennis3333308.github.io/lat-plus/index.html?ref=${currentUserId}`;
+            
+            // 嘗試自動複製
+            navigator.clipboard.writeText(refLink).then(() => {
+                alert("專屬推廣連結已複製！快分享給朋友：\n" + refLink);
+            }).catch(() => {
+                // 如果瀏覽器不支持自動複製，則彈出視窗讓用戶手動複製
+                prompt("請複製您的專屬連結：", refLink);
+            });
         }
 
         main();
