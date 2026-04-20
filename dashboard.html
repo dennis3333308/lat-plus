@@ -108,13 +108,15 @@
                 document.getElementById("userName").innerText = profile.displayName;
                 document.getElementById("userAvatar").src = profile.pictureUrl;
                 
-                // 這裡我幫你把 fetchUserBalance 串接起來
+                // --- 加入下面這一行來顯示你的 ID ---
+                alert("你的 ID 是: " + profile.userId);
+                // --------------------------------
+                
                 fetchUserBalance(profile.userId);
             } catch (err) {
                 console.error("抓取個人資料失敗", err);
             }
         }
-
         // 3. 抓取餘額數據
         function fetchUserBalance(userId) {
             // 目前先用模擬數據，之後教你串 Google Sheets API
