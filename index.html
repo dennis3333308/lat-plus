@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>暢悠樂 Plus | 90天體質變革計畫</title>
+    <title>暢悠樂 Plus 百億益生菌 | 官方深度導覽平台</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -13,26 +13,23 @@
             --teal-hover: #006666;
             --bg-light: #fff9fa; 
             --text-main: #444; 
-            --gold: #D4AF37;
         }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; line-height: 1.8; }
         
-        /* 導覽列：整合 LINE 功能 */
+        /* 導覽列 */
         nav { 
-            background: rgba(255,255,255,0.95); padding: 15px 5%; position: sticky; top: 0; z-index: 1000; 
+            background: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: center; 
-            align-items: center; flex-wrap: wrap; gap: 10px; backdrop-filter: blur(5px);
+            align-items: center; flex-wrap: wrap; gap: 10px; 
         }
         .btn-nav { 
             text-decoration: none; background: var(--complementary-teal); color: #fff !important; 
             padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; 
         }
-        .btn-line-dashboard { 
-            background: #06C755; /* LINE 綠色 */
-        }
-        .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-nav.dashboard { background: #06C755; }
+        .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); }
 
         /* Hero 區 */
         .hero { 
@@ -46,32 +43,37 @@
         .badge { background: var(--dark-pink); color: #fff; padding: 5px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; }
         .hero h1 { color: var(--dark-pink); font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 15px 0; letter-spacing: 2px; line-height: 1.2; }
 
-        /* 核心科技區塊 (新加入) */
-        .science-section { background: #fdfdfd; padding: 80px 5%; }
-        .science-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .science-card { background: #fff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-top: 6px solid var(--dark-pink); text-align: center; }
-        .science-card h3 { color: var(--dark-pink); font-size: 1.5rem; margin-bottom: 20px; }
-        .science-card .data-tag { background: #eee; border-radius: 20px; padding: 4px 15px; font-size: 0.85rem; margin: 10px 0; display: inline-block; }
-        .science-card .highlight-box { border: 2px dashed var(--brand-pink); border-radius: 15px; padding: 20px; margin: 20px 0; }
-        .science-card .big-num { font-size: 3rem; font-weight: bold; color: var(--dark-pink); }
+        /* 核心數據 */
+        .spec-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .spec-card { background: #fff; padding: 20px; border-radius: 15px; flex: 1; min-width: 120px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid var(--brand-pink); text-align: center; }
+        .spec-card strong { display: block; font-size: 1.8rem; color: var(--dark-pink); }
 
-        /* 表格與列表 */
+        /* 通用標題 */
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; color: var(--dark-pink); margin-bottom: 50px; font-size: clamp(1.8rem, 4vw, 2.2rem); }
+
+        /* 表格佈局 */
         .table-wrapper { width: 100%; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); background: #fff; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #f0f0f0; padding: 18px; text-align: left; }
         th { background: var(--brand-pink); color: #555; }
         .strain-tag { background: var(--bg-light); color: var(--dark-pink); padding: 4px 10px; border-radius: 4px; font-weight: bold; border: 1px solid var(--brand-pink); display: inline-block; margin-bottom: 5px; }
 
-        /* LINE 聯絡區美化 */
-        .contact-box { background: #222; color: #fff; text-align: center; padding: 80px 20px; border-radius: 40px; margin-top: 50px; border: 2px solid var(--gold); }
-        .line-btn { background: #06C755; color: white !important; padding: 20px 40px; border-radius: 50px; text-decoration: none; display: inline-block; font-size: 1.2rem; font-weight: bold; margin-top: 20px; }
-        
+        /* 益生菌教室網格 */
+        .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .tech-box { background: white; padding: 30px; border-radius: 20px; border-top: 5px solid var(--complementary-teal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .tech-box h3 { color: var(--dark-pink); margin-top: 0; font-size: 1.2rem; margin-bottom: 15px; }
+        .tech-footer { background: #f0f0f0; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; display: inline-block; margin-top: 15px; color: #666; }
+
+        /* 聯絡區 */
+        .contact-box { background: #333; color: #fff; text-align: center; padding: 60px 20px; border-radius: 30px; margin-top: 50px; }
+        .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; }
+
         @media (max-width: 768px) {
             .hero { text-align: center; }
             .hero-image { order: 1; margin-bottom: 30px; }
             .hero-content { order: 2; }
+            td { font-size: 0.9rem; padding: 12px; }
         }
     </style>
 </head>
@@ -79,49 +81,27 @@
 
     <nav>
         <a href="#strains" class="btn-nav">9大菌種解析</a>
-        <a href="#science" class="btn-nav">黑科技教室</a>
-        <a href="#qa" class="btn-nav">常見問題</a>
-        <a href="https://line.me/R/ti/p/@你的LINE帳號" class="btn-nav btn-line-dashboard">💰 進入分潤中心</a>
+        <a href="#knowledge" class="btn-nav">益生菌教室</a>
+        <a href="#contact" class="btn-nav">聯絡我們</a>
+        <a href="dashboard.html" class="btn-nav dashboard">💰 會員分潤後台</a>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <span class="badge">LAT 瑞正生醫 | 終身會員計畫</span>
-            <h1>暢悠樂 Plus<br>90天體質變革</h1>
-            <p>1 盒 90 包入：針對亞洲人體質研發的「深層管理方案」。<br>科學定量 2.0g，保證 100 億活菌穩定定殖。</p>
+            <span class="badge">LAT 暢悠樂生技 官方認證</span>
+            <h1>暢悠樂 Plus<br>百億益生菌</h1>
+            <p>1 盒 90 包入：針對亞洲人體質研發的「90 天深層管理方案」。<br>科學定量 2.0g，確保每一口都是 100 億活菌的精準守護。</p>
             
-            <a href="https://line.me/R/ti/p/@你的LINE帳號" class="line-btn">立即加入 LINE 啟動計畫 ➔</a>
+            <div class="spec-container">
+                <div class="spec-card"><strong>90</strong>入 / 盒</div>
+                <div class="spec-card"><strong>2.0g</strong>單包足量</div>
+                <div class="spec-card"><strong>100億</strong>活菌保證</div>
+            </div>
+
+            <a href="https://line.me/R/ti/p/@你的LINE帳號" class="btn-nav" style="margin-top: 40px; padding: 18px 45px; font-size: 1.1rem; display: inline-block;">立即加入 LINE 官方帳號 ➔</a>
         </div>
         <div class="hero-image">
             <img src="product.png" alt="暢悠樂 Plus 產品包裝圖">
-        </div>
-    </section>
-
-    <section id="science" class="science-section">
-        <h2 class="section-title">🔬 益生菌教室：<span>科學實證</span></h2>
-        <div class="science-grid">
-            <div class="science-card">
-                <h3>LAT-Plus 黑科技定殖技術</h3>
-                <p>耐酸耐鹽測試：模擬胃酸 pH 3.0，確保活性抵達</p>
-                <div class="highlight-box">
-                    <span class="big-num">90%</span><br>定殖力
-                </div>
-                <p>Caco-2 細胞吸附實驗：超高吸附率，穩定定殖長效作用</p>
-                <div class="data-tag">黑科技定殖，看不見的防護力</div>
-            </div>
-
-            <div class="science-card">
-                <h3>LAT-Plus 新一代合生元聯盟</h3>
-                <p><strong>益生菌 + 益生元 + 後生元 = 合生元</strong></p>
-                <div style="text-align: left; font-size: 0.9rem; color: #666; margin: 15px 0;">
-                    • 益生元：專屬優質口糧<br>
-                    • 後生元：科技淬煉代謝精華
-                </div>
-                <div class="highlight-box" style="font-size: 0.9rem;">
-                    AB菌核心配方 ➔ IMO寡糖滋養 ➔ 產生28種游離胺基酸/多醣體
-                </div>
-                <div class="data-tag">三位一體聯盟，打造自給自足生態圈</div>
-            </div>
         </div>
     </section>
 
@@ -130,34 +110,38 @@
         <div class="table-wrapper">
             <table>
                 <thead>
-                    <tr><th>菌種組成 (編號)</th><th>精英配方守護專長</th></tr>
+                    <tr><th>菌種組成 (編號)</th><th>主要對應功能</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><span class="strain-tag">LA1063</span> 嗜酸乳桿菌</td><td>強效耐酸定殖，建立第一道物理防禦屏障。 (私密守護)</td></tr>
-                    <tr><td><span class="strain-tag">BL986</span> 長雙歧桿菌</td><td>改善生理排便困擾，維持菌叢穩定。 (消化引擎)</td></tr>
-                    <tr><td><span class="strain-tag">LPC12</span> 副乾酪乳桿菌</td><td>調節環境換季反應，強化防護力。 (防護之盾)</td></tr>
-                    <tr><td><span class="strain-tag">LF26</span> 發酵乳桿菌</td><td>優化微生態平衡。 (代謝強化)</td></tr>
-                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌</td><td>產乳酸能力優異，協助菌株發酵。 (免疫平衡)</td></tr>
-                    <tr><td><span class="strain-tag">LH43</span> 瑞士乳桿菌</td><td>輔助消化與吸收，維持每日機能。 (消化溫和)</td></tr>
-                    <tr><td><span class="strain-tag">KM116</span> 脆壁克魯維酵母菌</td><td>調節環境並優化吸收效率。 (風味與活性)</td></tr>
-                    <tr><td><span class="strain-tag">UBCB70</span> 酪酸菌</td><td>專利包埋技術，修復穩定黏膜屏障。</td></tr>
-                    <tr><td><span class="strain-tag">LRH10</span> 鼠李糖乳桿菌</td><td>極致環境耐受性，長期穩定定殖。</td></tr>
+                    <tr><td><span class="strain-tag">LA1063</span> 嗜酸乳桿菌 (A菌)</td><td>促進乳糖消化、維持腸道菌群平衡、增強免疫功能、私密處保健。</td></tr>
+                    <tr><td><span class="strain-tag">BL986</span> 比菲德氏龍根菌 (B菌)</td><td>促進胃排空、增進腸道蠕動、改善便秘腹瀉、抑制有害菌生長。</td></tr>
+                    <tr><td><span class="strain-tag">LPC12</span> 副乾酪乳桿菌 (LP菌)</td><td>腸內定殖力最強的乳酸菌。緩解過敏症狀、促進腸道健康、提升保護力。</td></tr>
+                    <tr><td><span class="strain-tag">LRH10</span> 鼠李糖乳桿菌 (LGG菌)</td><td>長駐型菌種，適應力強。預防及治療腹瀉、降低呼吸道感染風險。</td></tr>
+                    <tr><td><span class="strain-tag">LF26</span> 發酵乳桿菌 (F菌)</td><td>增強腸道屏障、提升抗氧化力、抑制壞菌增生、調節免疫功能。</td></tr>
+                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌 (ST菌)</td><td>發酵產生乳酸，使牛乳(乳糖)更容易消化吸收，輔助菌株生存。</td></tr>
+                    <tr><td><span class="strain-tag">LH43</span> 瑞士乳桿菌 (LH菌)</td><td>具有抑制有害微生物生長能力，提升生物利用率、維持消化道機能。</td></tr>
+                    <tr><td><span class="strain-tag">KM116</span> 脆壁克魯維酵母菌</td><td>碳源適應性佳、具廣適性。發酵時會散發出特別的類似水果香氣。</td></tr>
+                    <tr><td><span class="strain-tag">UBCB70</span> 酪酸菌 (宮入菌)</td><td>專利包埋技術。能產生關鍵丁酸，提供腸道能量並穩定修復黏膜屏障。</td></tr>
                 </tbody>
             </table>
         </div>
-        <p style="text-align:center; margin-top:20px; font-weight:bold; color:var(--dark-pink);">精英配方，聯手打造全方位防護</p>
+        <p style="text-align: center; margin-top: 20px; font-weight: bold; color: var(--dark-pink);">精英配方，聯手打造全方位防護</p>
     </section>
 
-    <section id="qa">
-        <h2 class="section-title">常見問題解答</h2>
-        <div class="qa-container">
-            <div class="qa-item">
-                <details><summary>糖尿病患者可以安心食用嗎？</summary>
-                <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低 (0.7g)。對於血糖波動影響極微。</div></details>
+    <section id="knowledge">
+        <h2 class="section-title">💡 益生菌教室：<span>科學實證</span></h2>
+        <div class="knowledge-grid">
+            <div class="tech-box">
+                <h3>LAT-Plus 黑科技定殖技術</h3>
+                <p><strong>耐酸耐鹽測試：</strong>模擬胃酸 pH 3.0，確保好菌活性抵達，抵禦膽鹽侵蝕。</p>
+                <p><strong>Caco-2細胞吸附實驗：</strong>實驗數據顯示 90% 以上超高吸附率，長效定殖。</p>
+                <div class="tech-footer">黑科技定殖，看不見的防護力</div>
             </div>
-            <div class="qa-item">
-                <details><summary>為什麼這款產品定價較高？</summary>
-                <div class="qa-content">我們一盒 90 包是完整的重建方案。日均成本僅約 30 元，卻能獲得總菌量 9000 億的深度管理。</div></details>
+            <div class="tech-box">
+                <h3>LAT-Plus 新一代合生元聯盟</h3>
+                <p><strong>益生菌 + 益生元 + 後生元 = 合生元</strong></p>
+                <p>• 益生元：專屬優質口糧 (IMO寡糖)。<br>• 後生元：28種游離胺基酸/多醣體，科技淬煉代謝精華。</p>
+                <div class="tech-footer">三位一體聯盟，打造體內自給自足生態圈</div>
             </div>
         </div>
     </section>
@@ -165,9 +149,9 @@
     <section id="contact">
         <div class="contact-box">
             <h2>聯繫品牌經理</h2>
-            <p>即刻加入 LINE 官方帳號，領取您的 $500 創業啟動金</p>
-            <a href="https://line.me/R/ti/p/@你的LINE帳號" class="line-btn" style="background:#06C755;">加 LINE 領取分潤資格 ➔</a>
-            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.8;">本資料引述自瑞正生醫科研實驗數據，僅供品牌深度愛好者與會員參考。</p>
+            <p>如有大宗採購或合作諮詢，歡迎隨時來信：</p>
+            <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a>
+            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 LAT 暢悠樂生技 ｜ 官方技術導覽平台</p>
         </div>
     </section>
 
