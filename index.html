@@ -65,6 +65,17 @@
         .tech-box h3 { color: var(--dark-pink); margin-top: 0; font-size: 1.2rem; margin-bottom: 15px; }
         .tech-footer { background: #f0f0f0; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; display: inline-block; margin-top: 15px; color: #666; }
 
+        /* Q&A 區塊設計 */
+        .qa-container { background: var(--bg-light); padding: 40px; border-radius: 30px; }
+        .qa-item { margin-bottom: 15px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: 0.3s; }
+        summary { padding: 22px 25px; font-weight: bold; cursor: pointer; display: flex; align-items: center; list-style: none; position: relative; }
+        summary::before {
+            content: '?'; display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; background: var(--complementary-teal); color: white;
+            border-radius: 50%; margin-right: 15px; flex-shrink: 0;
+        }
+        .qa-content { padding: 0 25px 25px 68px; color: #777; font-size: 0.95rem; border-top: 1px solid #f9f9f9; }
+
         /* 聯絡區 */
         .contact-box { background: #333; color: #fff; text-align: center; padding: 60px 20px; border-radius: 30px; margin-top: 50px; }
         .contact-box a { color: var(--brand-pink); text-decoration: none; font-size: 1.3rem; font-weight: bold; }
@@ -73,7 +84,7 @@
             .hero { text-align: center; }
             .hero-image { order: 1; margin-bottom: 30px; }
             .hero-content { order: 2; }
-            td { font-size: 0.9rem; padding: 12px; }
+            .qa-content { padding-left: 25px; }
         }
     </style>
 </head>
@@ -82,7 +93,7 @@
     <nav>
         <a href="#strains" class="btn-nav">9大菌種解析</a>
         <a href="#knowledge" class="btn-nav">益生菌教室</a>
-        <a href="#contact" class="btn-nav">聯絡我們</a>
+        <a href="#qa" class="btn-nav">常見問題</a>
         <a href="dashboard.html" class="btn-nav dashboard">💰 會員分潤後台</a>
     </nav>
 
@@ -118,7 +129,7 @@
                     <tr><td><span class="strain-tag">LPC12</span> 副乾酪乳桿菌 (LP菌)</td><td>腸內定殖力最強的乳酸菌。緩解過敏症狀、促進腸道健康、提升保護力。</td></tr>
                     <tr><td><span class="strain-tag">LRH10</span> 鼠李糖乳桿菌 (LGG菌)</td><td>長駐型菌種，適應力強。預防及治療腹瀉、降低呼吸道感染風險。</td></tr>
                     <tr><td><span class="strain-tag">LF26</span> 發酵乳桿菌 (F菌)</td><td>增強腸道屏障、提升抗氧化力、抑制壞菌增生、調節免疫功能。</td></tr>
-                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌 (ST菌)</td><td>發酵產生乳酸，使牛乳(乳糖)更容易消化吸收，輔助菌株生存。</td></tr>
+                    <tr><td><span class="strain-tag">ST30</span> 嗜熱鏈球菌 (ST菌)</td><td>發酵產生乳酸，使牛乳(乳糖)更容易消化吸收，協助菌株生存。</td></tr>
                     <tr><td><span class="strain-tag">LH43</span> 瑞士乳桿菌 (LH菌)</td><td>具有抑制有害微生物生長能力，提升生物利用率、維持消化道機能。</td></tr>
                     <tr><td><span class="strain-tag">KM116</span> 脆壁克魯維酵母菌</td><td>碳源適應性佳、具廣適性。發酵時會散發出特別的類似水果香氣。</td></tr>
                     <tr><td><span class="strain-tag">UBCB70</span> 酪酸菌 (宮入菌)</td><td>專利包埋技術。能產生關鍵丁酸，提供腸道能量並穩定修復黏膜屏障。</td></tr>
@@ -134,14 +145,51 @@
             <div class="tech-box">
                 <h3>LAT-Plus 黑科技定殖技術</h3>
                 <p><strong>耐酸耐鹽測試：</strong>模擬胃酸 pH 3.0，確保好菌活性抵達，抵禦膽鹽侵蝕。</p>
-                <p><strong>Caco-2細胞吸附實驗：</strong>實驗數據顯示 90% 以上超高吸附率，長效定殖。</p>
+                <p><strong>Caco-2細胞吸附實驗：</strong>數據顯示 90% 以上超高吸附率，長效穩定定殖作用。</p>
                 <div class="tech-footer">黑科技定殖，看不見的防護力</div>
             </div>
             <div class="tech-box">
                 <h3>LAT-Plus 新一代合生元聯盟</h3>
                 <p><strong>益生菌 + 益生元 + 後生元 = 合生元</strong></p>
                 <p>• 益生元：專屬優質口糧 (IMO寡糖)。<br>• 後生元：28種游離胺基酸/多醣體，科技淬煉代謝精華。</p>
-                <div class="tech-footer">三位一體聯盟，打造體內自給自足生態圈</div>
+                <div class="tech-footer">三位一體聯盟，打造自給自足生態圈</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="qa">
+        <h2 class="section-title">常見問題解答</h2>
+        <div class="qa-container">
+            <div class="qa-item">
+                <details>
+                    <summary>糖尿病患者可以安心食用嗎？</summary>
+                    <div class="qa-content">本產品單包熱量僅 7.7 大卡，含糖量極低 (0.7g)。對於血糖波動影響極微，適合日常補充。</div>
+                </details>
+            </div>
+            <div class="qa-item">
+                <details>
+                    <summary>素食族群可以食用嗎？</summary>
+                    <div class="qa-content">產品內含天然乳酸菌與脫脂奶粉，屬於「奶素」可食範圍。</div>
+                </details>
+            </div>
+
+            <div class="qa-item" style="border-left: 4px solid var(--complementary-teal);">
+                <details>
+                    <summary>如何開啟「分潤權益」賺取推薦獎金？</summary>
+                    <div class="qa-content">升級為「終身會員」後，您將擁有專屬的分潤中心頁面。透過分享連結，每一位朋友的成功訂購都能為您帶來實質獎金。詳情請加入 LINE 諮詢。</div>
+                </details>
+            </div>
+            <div class="qa-item" style="border-left: 4px solid var(--complementary-teal);">
+                <details>
+                    <summary>提現流程需要多久時間？有手續費嗎？</summary>
+                    <div class="qa-content">提現申請由人工審核對帳，確保每一筆分潤準確無誤。審核通過後約 3 個工作日內匯入指定帳戶，目前推廣期間不收取行政手續費。</div>
+                </details>
+            </div>
+            <div class="qa-item">
+                <details>
+                    <summary>為什麼這款產品定價較高？</summary>
+                    <div class="qa-content">我們一盒 90 包是完整的重建方案。日均成本僅約 30 元，卻能獲得總菌量 9000 億的深度管理，且具備會員分潤回饋機制。</div>
+                </details>
             </div>
         </div>
     </section>
@@ -152,6 +200,7 @@
             <p>如有大宗採購或合作諮詢，歡迎隨時來信：</p>
             <a href="mailto:dennis3333308@gmail.com">dennis3333308@gmail.com</a>
             <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 LAT 暢悠樂生技 ｜ 官方技術導覽平台</p>
+            <p style="margin-top: 10px; font-size: 0.7rem; opacity: 0.4;">本資料僅提供內部教育訓練與品牌會員參考，不作為廣告宣傳用途</p>
         </div>
     </section>
 
