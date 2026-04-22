@@ -74,7 +74,10 @@
             color: #fff; 
             font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            border: none;
         }
+        .btn-buy:active { transform: scale(0.98); }
+
         .btn-gold { background-color: #f1f1f1; color: var(--text-main); border: 1px solid #ddd; }
         .btn-outline { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); }
 
@@ -100,7 +103,7 @@
             <div class="balance-amount" id="userBalance">$0</div>
         </div>
 
-        <button class="btn btn-buy" onclick="window.location.href='這裡請貼上您的MyShop商品連結'">
+        <button class="btn btn-buy" onclick="window.location.href='https://myship.7-11.com.tw/general/detail/GM2604228051381'">
             🛒 立即訂購「暢悠樂 Plus」
         </button>
 
@@ -126,7 +129,7 @@
         </div>
 
         <div class="footer-note">
-            © 2026 暢悠樂益菌 | 系統版本 v1.0.3<br>
+            © 2026 暢悠樂益菌 | 系統版本 v1.0.4<br>
             所有分潤發放均需經過人工對帳審核
         </div>
     </div>
@@ -137,7 +140,6 @@
 
         async function main() {
             try {
-                // 這裡的 ID 保持不變
                 await liff.init({ liffId: "2009844406-JjOr1WN0" }); 
                 if (liff.isLoggedIn()) {
                     getUserProfile();
@@ -163,17 +165,16 @@
         }
 
         async function fetchUserBalance(userId) {
-            // 這裡的網址也保持您的設定
             const gasUrl = "https://script.google.com/macros/s/AKfycbwCNBm8jlZ3n2u9Kgec50vN2l0Oea_iWlyic514FwPyWKUs7q8DSbc_AM9j8-w9rgBhjQ/exec";
             try {
                 const response = await fetch(`${gasUrl}?userId=${userId}`);
                 const data = await response.json();
-                currentBalance = data.balance;
-                document.getElementById("userBalance").innerText = "$" + data.balance.toLocaleString();
-                document.getElementById("inviteCount").innerText = data.inviteCount + " 人";
-                document.getElementById("totalEarned").innerText = "$" + data.totalEarned.toLocaleString();
+                currentBalance = data.balance || 0;
+                document.getElementById("userBalance").innerText = "$" + (data.balance || 0).toLocaleString();
+                document.getElementById("inviteCount").innerText = (data.inviteCount || 0) + " 人";
+                document.getElementById("totalEarned").innerText = "$" + (data.totalEarned || 0).toLocaleString();
             } catch (err) {
-                document.getElementById("userBalance").innerText = "讀取中...";
+                document.getElementById("userBalance").innerText = "$0";
             }
         }
 
