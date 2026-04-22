@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暢悠樂 Plus | 限時大促優惠專區</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-teal: #008b8b;
+            --soft-pink: #fff5f6;
+            --line-green: #06C755;
+            --711-orange: #f48120;
+        }
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding-bottom: 50px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--gold), #b8860b);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .deadline-badge {
+            display: inline-block;
+            background: #d67b8e;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+        .promo-table-container {
+            margin: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            text-align: center;
+        }
+        th {
+            background: #f8f9fa;
+            padding: 15px 5px;
+            font-size: 0.85rem;
+            color: #666;
+            border-bottom: 2px solid var(--gold);
+        }
+        td {
+            padding: 15px 5px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+        .code-tag {
+            background: #eee;
+            color: var(--dark-teal);
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .copy-btn {
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+        .copy-btn:active { background: #eee; }
+        .price-final {
+            color: #d67b8e;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .btn-box {
+            padding: 20px;
+            text-align: center;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px 0;
+            margin: 15px 0;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+        }
+        .btn-711 {
+            background-color: var(--711-orange);
+            color: white;
+            box-shadow: 0 5px 15px rgba(244,129,32,0.3);
+        }
+        .btn-line {
+            background-color: var(--line-green);
+            color: white;
+            box-shadow: 0 5px 15px rgba(6,199,85,0.2);
+        }
+        .qr-section {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .qr-img {
+            width: 200px;
+            height: 200px;
+            margin: 15px 0;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="deadline-badge">⏳ 活動至 2026/06/30 截止</div>
+        <h1 style="margin:10px 0;">暢悠樂 Plus 益菌</h1>
+        <p style="margin:0; opacity: 0.9;">限時階梯折扣．買越多省越多</p>
+    </header>
+
+    <div class="promo-table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>購買盒數</th>
+                    <th>折扣碼 (點擊複製)</th>
+                    <th>實付金額</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 盒</td>
+                    <td>
+                        <span class="code-tag" id="c1">t3333308</span><br>
+                        <button class="copy-btn" onclick="copyText('t3333308')">複製</button>
+                    </td>
+                    <td><span class="price-final">$2,300</span><br><small style="color:#999;">(原價$2600)</small></td>
+                </tr>
+                <tr>
+                    <td>2 盒<br><small style="color:#008b8b;">+免運</small></td>
+                    <td>
+                        <span class="code-tag" id="c2">tt333308</span><br>
+                        <button class="copy-btn" onclick="copyText('tt333308')">複製</button>
+                    </td>
+                    <td><span class="price-final">$4,400</span><br><small style="color:#999;">(現省$800)</small></td>
+                </tr>
+                <tr style="background: #fff9e6;">
+                    <td><strong>3 盒</strong><br><small style="color:#008b8b;">+免運</small></td>
+                    <td>
+                        <span class="code-tag" style="background:var(--dark-teal); color:white;">ttt33308</span><br>
+                        <button class="copy-btn" onclick="copyText('ttt33308')">複製</button>
+                    </td>
+                    <td><span class="price-final" style="font-size:1.3rem;">$6,200</span><br><strong style="color:#d67b8e;">省 $1,600</strong></td>
+                </tr>
+                <tr>
+                    <td>4 盒<br><small style="color:#008b8b;">+免運</small></td>
+                    <td>
+                        <span class="code-tag" id="c4">tttt3308</span><br>
+                        <button class="copy-btn" onclick="copyText('tttt3308')">複製</button>
+                    </td>
+                    <td><span class="price-final">$8,200</span><br><small style="color:#999;">(現省$2200)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>5 盒</strong><br><small style="color:#008b8b;">+免運</small></td>
+                    <td>
+                        <span class="code-tag" id="c5">ttttt308</span><br>
+                        <button class="copy-btn" onclick="copyText('ttttt308')">複製</button>
+                    </td>
+                    <td><span class="price-final" style="font-size:1.3rem;">$10,000</span><br><strong style="color:#d67b8e;">省 $3,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="btn-box">
+        <a href="https://myship.7-11.com.tw/general/detail/GM2604228051381" class="btn btn-711">
+            📦 前往 7-Eleven 賣貨便下單
+        </a>
+
+        <a href="https://line.me/R/ti/p/@你的LINE帳號" class="btn btn-line">
+            💬 加入官方 LINE 諮詢領優惠
+        </a>
+    </div>
+
+    <div class="qr-section">
+        <p><strong>掃描或截圖 QR Code 加入 LINE</strong></p>
+        <img src="image_545a19.png" alt="LINE QR Code" class="qr-img">
+        <p style="font-size: 0.85rem; color: #666;">
+            若使用手機閱讀，請先【截圖本畫面】<br>
+            至 LINE 掃描條碼選擇相簿圖片即可加入
+        </p>
+    </div>
+
+    <footer style="text-align: center; color: #999; font-size: 0.8rem; padding: 20px;">
+        © 2026 暢悠樂 Plus 益菌版權所有<br>
+        本活動最終解釋權歸本品牌中心所有
+    </footer>
+</div>
+
+<script>
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('折扣碼 ' + text + ' 已複製！\n請在賣貨便結帳時「使用折價券」處貼上。');
+        }, function(err) {
+            console.error('無法複製代碼', err);
+        });
+    }
+</script>
+
+</body>
+</html>
