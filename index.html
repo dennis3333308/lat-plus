@@ -18,13 +18,25 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans TC', sans-serif; margin: 0; color: var(--text-main); background-color: #fff; line-height: 1.8; user-select: none; }
         
+        /* 頂部活動橫幅樣式 */
+        .promo-banner {
+            cursor: pointer; 
+            background: linear-gradient(90deg, #D4AF37, #b8860b); 
+            color: white; 
+            text-align: center; 
+            padding: 12px; 
+            font-weight: bold; 
+            font-size: 0.95rem; 
+            z-index: 1001; 
+            position: relative;
+        }
+
         nav { 
             background: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: center; 
             align-items: center; flex-wrap: wrap; gap: 10px; 
         }
-        .btn-nav { text-decoration: none; background: var(--complementary-teal); color: #fff !important; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; }
-        .btn-nav.dashboard { background: #06C755; }
+        .btn-nav { text-decoration: none; background: var(--complementary-teal); color: #fff !important; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
         .btn-nav:hover { background: var(--teal-hover); transform: translateY(-2px); }
 
         .hero { background: linear-gradient(135deg, #fff 0%, var(--brand-pink) 100%); padding: 60px 5%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; min-height: 80vh; }
@@ -67,28 +79,39 @@
 </head>
 <body>
 
+    <div class="promo-banner" onclick="location.href='promo.html'">
+        📢 6月底前限時大促：輸入折扣碼最高現折 $3000！ 【點此領取優惠代碼】
+    </div>
+
     <nav>
         <a href="#strains" class="btn-nav">9大菌種解析</a>
         <a href="#knowledge" class="btn-nav">益生菌教室</a>
         <a href="#usage" class="btn-nav">食用注意事項</a>
         <a href="#qa" class="btn-nav">常見問題</a>
-        <a href="dashboard.html" class="btn-nav dashboard">💰 分潤管理中心</a>
-    </nav>
+        <a href="promo.html" class="btn-nav" style="background: #f48120;">🔥 限時折扣代碼</a>
+        </nav>
 
     <section class="hero">
         <div class="hero-content">
             <span class="badge">LAT 暢悠樂生技 官方認證</span>
             <h1>暢悠樂 Plus<br>百億益生菌</h1>
             <p>1 盒 90 包入：針對亞洲人體質研發的「90 天深層管理方案」。<br>科學定量 2.0g，確保每一口都是 100 億活菌的精準守護。</p>
+            
             <div class="spec-container">
                 <div class="spec-card"><strong>90</strong>入 / 盒</div>
                 <div class="spec-card"><strong>2.0g</strong>單包足量</div>
                 <div class="spec-card"><strong>100億</strong>活菌保證</div>
-           <div style="text-align: center; width: 100%;">
-           <a href="https://line.me/R/ti/p/@998qafvs" class="btn-nav" style="margin-top: 40px; padding: 18px 45px; font-size: 1.1rem; display: inline-block; background-color: #06C755; color: #fff; text-decoration: none; border-radius: 50px; font-weight: bold;">
-           立即加入 LINE 官方帳號 ➔
-           </a>
-          </div>
+            </div>
+
+            <div style="text-align: center; width: 100%; display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 30px;">
+                <a href="https://myship.7-11.com.tw/general/detail/GM2604228051381" class="btn-nav" style="width: 280px; padding: 15px; font-size: 1.1rem; background-color: #f48120; border-radius: 50px; font-weight: bold; text-align: center;">
+                    📦 前往 7-Eleven 賣貨便下單
+                </a>
+                <a href="https://line.me/R/ti/p/@998qafvs" class="btn-nav" style="width: 280px; padding: 15px; font-size: 1.1rem; background-color: #06C755; border-radius: 50px; font-weight: bold; text-align: center;">
+                    💬 立即加入 LINE 官方帳號 ➔
+                </a>
+            </div>
+        </div>
         <div class="hero-image">
             <img src="product.png" alt="暢悠樂 Plus 產品包裝圖">
         </div>
@@ -137,9 +160,7 @@
         <h2 class="section-title">常見問題解答</h2>
         <div class="qa-container">
             <div class="qa-item"><details><summary>素食/糖尿病/生病可以吃嗎？</summary><div class="qa-content">奶素可食。低熱量不影響血糖。生病期間可食用，但與抗生素須間隔 2 小時。</div></details></div>
-            <div class="qa-item" style="border-left: 4px solid var(--complementary-teal);"><details><summary>如何開啟分潤權益？</summary><div class="qa-content">一次性支付 NT$3,000 升級終身會員，即可擁有個人分潤中心。</div></details></div>
-            <div class="qa-item" style="border-left: 4px solid var(--complementary-teal);"><details><summary>提現需要多久？</summary><div class="qa-content">管理員人工核銷後，約 3 個工作日內匯入指定帳戶。</div></details></div>
-        </div>
+            </div>
     </section>
 
     <section id="contact">
